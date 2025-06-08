@@ -5,7 +5,7 @@ from player import Player
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
 from bullet import Shot
- 
+import sys
 def main():
     pygame.init()
     clock = pygame.time.Clock()
@@ -43,7 +43,7 @@ def main():
             for shot in shots:
                 if asteroid.collides_with(shot):
                     shot.kill()
-                    asteroid.kill()
+                    asteroid.split()
      
 
         
@@ -51,9 +51,7 @@ def main():
         
         dt = clock.tick(60) / 1000
 
-    print("Starting Asteroids!")
-    print(f"Screen width: {SCREEN_WIDTH}")
-    print(f"Screen height: {SCREEN_HEIGHT}")
+    
     
 if __name__ == "__main__":
     main()
